@@ -1,4 +1,4 @@
-package com.banirudh.contacts.controller;
+package com.banirudh.employees.controller;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 import com.banirudh.db.connection.DbConnection;
 
-public class ContactsController {
+public class EmployeesController {
 	public static void getContacts() {
 		try {
 			Connection con = DbConnection.getConnection();

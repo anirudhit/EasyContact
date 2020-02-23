@@ -1,4 +1,4 @@
-package com.banirudh.contacts.model;
+package com.banirudh.employees.model;
 
 public class Employee {
 	private int empid;
