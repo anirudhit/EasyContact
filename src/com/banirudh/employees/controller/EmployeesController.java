@@ -10,7 +10,8 @@ import com.banirudh.db.connection.DbConnection;
 import com.banirudh.employees.model.Employee;
 
 public class EmployeesController {
-	public static void getEmployees() {
+	public static List<Employee> getEmployees() {
+		List<Employee> empList = null;
 		try {
 			Connection con = DbConnection.getConnection();
 			// Sql statements
@@ -19,7 +20,7 @@ public class EmployeesController {
 			String query = "SELECT * FROM employee";
 			ResultSet res = stmt.executeQuery(query);
 			
-			List<Employee> empList = new ArrayList<>();
+			empList = new ArrayList<>();
 			
 			while(res.next()) {
 				int empId = Integer.parseInt(res.getString("empid"));
@@ -30,10 +31,10 @@ public class EmployeesController {
 				empList.add(new Employee(empId, empName, dateOfJoining, dateOfBirth, skillSet));
 			}
 			
-			System.out.println(empList);
-			
 		}catch (Exception e) {
 			System.out.println(e);
 		}
+		
+		return empList;
 	}
 }
