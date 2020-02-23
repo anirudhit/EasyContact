@@ -6,7 +6,7 @@ public class EmployeeMain {
 
 	public static void main(String[] args) {
 		
-		EmployeesController.getContacts();
+		EmployeesController.getEmployees();
 		
 	}
 

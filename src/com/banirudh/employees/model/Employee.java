@@ -1,34 +1,34 @@
 package com.banirudh.employees.model;
 
 public class Employee {
-	private int empid;
-	private String empname;
+	private int empId;
+	private String empName;
 	private String dateOfJoining;
 	private String dateOfBirth;
 	private String skillSet;
 	
-	public Employee(int empid, String empname, String dateOfJoining, String dateOfBirth, String skillSet) {
-		this.empid = empid;
-		this.empname = empname;
+	public Employee(int empId, String empName, String dateOfJoining, String dateOfBirth, String skillSet) {
+		this.empId = empId;
+		this.empName = empName;
 		this.dateOfJoining = dateOfJoining;
 		this.dateOfBirth = dateOfBirth;
 		this.skillSet = skillSet;
 	}
 
-	public int getEmpid() {
-		return empid;
+	public int getEmpId() {
+		return empId;
 	}
 
-	public void setEmpid(int empid) {
-		this.empid = empid;
+	public void setEmpId(int empId) {
+		this.empId = empId;
 	}
 
-	public String getEmpname() {
-		return empname;
+	public String getEmpName() {
+		return empName;
 	}
 
-	public void setEmpname(String empname) {
-		this.empname = empname;
+	public void setEmpName(String empName) {
+		this.empName = empName;
 	}
 
 	public String getDateOfJoining() {
@@ -53,6 +53,12 @@ public class Employee {
 
 	public void setSkillSet(String skillSet) {
 		this.skillSet = skillSet;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", empName=" + empName + ", dateOfJoining=" + dateOfJoining
+				+ ", dateOfBirth=" + dateOfBirth + ", skillSet=" + skillSet + "]";
 	}
 	
 }
