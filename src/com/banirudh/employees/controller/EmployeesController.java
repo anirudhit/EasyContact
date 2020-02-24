@@ -1,6 +1,7 @@
 package com.banirudh.employees.controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -36,5 +37,28 @@ public class EmployeesController {
 		}
 		
 		return empList;
+	}
+	
+	public static int addEmployee(Employee emp) {
+		int addedEmp = 0;
+		try {
+			Connection con = DbConnection.getConnection();
+			
+			// Query
+			String query = "INSERT INTO employee (empname,dateofjoining,dateofbirth,skillset) VALUES(?,?,?,?)";
+			
+			PreparedStatement ps=con.prepareStatement(query);
+			ps.setString(1, emp.getEmpName());
+			ps.setString(2, emp.getDateOfJoining());
+			ps.setString(3, emp.getDateOfBirth());
+			ps.setString(4, emp.getSkillSet());
+			addedEmp = ps.executeUpdate();
+			System.out.println(addedEmp);
+			
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return addedEmp;
 	}
 }
