@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="img/icon/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Dynamic web project for logging contacts"
+    />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link href="css/easy-contact-styles.css" rel="stylesheet">
+    
+    <title>Easy contact > Add employee</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <!-- Jquery library -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!-- Employee details -->
+    <script src="js/global.fn.js"></script>
+    <script src="js/employee.add.js"></script>
+    
+    <nav>
+    	<div class="nav-wrapper">
+      		<a href="#" class="brand-logo">Easy Contact</a>
+		    <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="index.html">Home</a></li>
+		        <li><a href="employee.add.html">Add Employee</a></li>
+		        <li><a href="employee.edit.html">Edit Employee</a></li>
+		        <li><a href="employee.remove.html">Remove Employee</a></li>
+		    </ul>
+    	</div>
+  	</nav>
+  	
+  	
+  	<div class="container" id="employee-container">
+  		<div class="row">
+	      <form class="col s12" id="employee-add" autocomplete="off">
+	      
+	        <div class="row">
+	          <div class="input-field col s6">
+	            <input id="empName" type="text" data-length="45" 
+	            	name="empName">
+	            <label for="empName">Employee name</label>
+	          </div>
+	        </div>
+	        
+	        <div class="row">
+	          <div class="input-field col s6">
+	          	<input id="dateOfJoining" type="text" class="datepicker"
+	          		name="dateOfJoining">
+	            <label for="dateOfJoining">Date of joining</label>
+	          </div>
+	        </div>
+	        
+	        <div class="row">
+	          <div class="input-field col s6">
+	            	<input id="dateOfBirth" type="text" class="datepicker"
+	          		name="dateOfBirth">
+	            <label for="dateOfBirth">Date of birth</label>
+	          </div>
+	        </div>
+	        
+	        <!-- <div class="row">
+	          <div class="input-field col s8">
+	            <textarea id="skillSet" class="materialize-textarea" 
+	            	data-length="150" name="skillSet"></textarea>
+	            <label for="skillSet">Skill set</label>
+	          </div>
+	        </div> -->
+			
+			<div class="row">
+				<div class="input-field col s8">
+				  	<div class="chips skills-chips-placeholder"></div>
+				</div>
+				
+				<!-- <div class="input-field col s8">
+				   <input id="skillSet" class="chips skills-chips-placeholder" 
+				   	name="skillSet">
+				</div> -->
+				
+			</div>
+				
+			<button class="btn waves-effect waves-light" 
+				id="employeeSubmit">Submit
+			    <i class="material-icons right">send</i>
+			</button>
+	        
+	      </form>
+	    </div>
+    </div>
+  	
+  	
+  	
+
+  </body>
+</html>
