@@ -11,10 +11,16 @@ import com.banirudh.db.connection.DbConnection;
 import com.banirudh.employees.model.Employee;
 
 public class EmployeesController {
+	
+	static Connection con;
+	static {
+		con = DbConnection.getConnection();
+	}
+	
 	public static List<Employee> getEmployees() {
 		List<Employee> empList = null;
 		try {
-			Connection con = DbConnection.getConnection();
+			
 			// Sql statements
 			Statement stmt = con.createStatement();
 			// Query
@@ -42,8 +48,6 @@ public class EmployeesController {
 	public static int addEmployee(Employee emp) {
 		int addedEmp = 0;
 		try {
-			Connection con = DbConnection.getConnection();
-			
 			// Query
 			String query = "INSERT INTO employee (empname,dateofjoining,dateofbirth,skillset) VALUES(?,?,?,?)";
 			
@@ -61,4 +65,21 @@ public class EmployeesController {
 		
 		return addedEmp;
 	}
+	
+	
+	public static int deleteEmployee(String empId) {
+		int deletedEmp = 0;
+		try {
+			String query = "DELETE FROM employee WHERE empId = ?";
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setString(1, empId);
+			int result=ps.executeUpdate();
+			System.out.println(result);
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		return deletedEmp;
+	}
+	
 }

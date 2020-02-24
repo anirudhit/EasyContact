@@ -1,7 +1,6 @@
 package com.banirudh.employees.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,6 @@ import com.banirudh.employees.controller.EmployeesController;
 import com.banirudh.employees.model.Employee;
 import com.banirudh.util.EmployeeResponse;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 /**
  * Servlet implementation class EmployeeServlet
@@ -70,6 +68,30 @@ public class EmployeeDetailsServlet extends HttpServlet {
 		}
 		
 		response.getWriter().append(responseMessage);
+	}
+	
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String empId = req.getParameter("empId");
+		System.out.println(empId);
+		
+		int result = EmployeesController.deleteEmployee(empId);
+		String responseMessage = null;
+		if(result == 0) {
+			String json = "{ \"message\": \"Please check employee details.\"}";
+			responseMessage = EmployeeResponse.responseMapper(json);
+		}else {
+			String json = "{ \"message\": \"Employee deleted successfully.\"}";
+			responseMessage = EmployeeResponse.responseMapper(json);
+		}
+		
+		resp.getWriter().append(responseMessage);
+	}
+	
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		super.doPut(req, resp);
 	}
 
 }
